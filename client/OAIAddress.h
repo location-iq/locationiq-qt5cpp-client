@@ -50,14 +50,44 @@ public:
     QString* getResidential();
     void setResidential(QString* residential);
 
+    QString* getBorough();
+    void setBorough(QString* borough);
+
+    QString* getNeighbourhood();
+    void setNeighbourhood(QString* neighbourhood);
+
+    QString* getQuarter();
+    void setQuarter(QString* quarter);
+
+    QString* getHamlet();
+    void setHamlet(QString* hamlet);
+
+    QString* getSuburb();
+    void setSuburb(QString* suburb);
+
+    QString* getIsland();
+    void setIsland(QString* island);
+
     QString* getVillage();
     void setVillage(QString* village);
+
+    QString* getTown();
+    void setTown(QString* town);
+
+    QString* getCity();
+    void setCity(QString* city);
+
+    QString* getCityDistrict();
+    void setCityDistrict(QString* city_district);
 
     QString* getCounty();
     void setCounty(QString* county);
 
     QString* getState();
     void setState(QString* state);
+
+    QString* getStateDistrict();
+    void setStateDistrict(QString* state_district);
 
     QString* getPostcode();
     void setPostcode(QString* postcode);
@@ -68,8 +98,8 @@ public:
     QString* getCountryCode();
     void setCountryCode(QString* country_code);
 
-    QString* getCity();
-    void setCity(QString* city);
+    QString* getStateCode();
+    void setStateCode(QString* state_code);
 
 
     virtual bool isSet() override;
@@ -84,14 +114,44 @@ private:
     QString* residential;
     bool m_residential_isSet;
 
+    QString* borough;
+    bool m_borough_isSet;
+
+    QString* neighbourhood;
+    bool m_neighbourhood_isSet;
+
+    QString* quarter;
+    bool m_quarter_isSet;
+
+    QString* hamlet;
+    bool m_hamlet_isSet;
+
+    QString* suburb;
+    bool m_suburb_isSet;
+
+    QString* island;
+    bool m_island_isSet;
+
     QString* village;
     bool m_village_isSet;
+
+    QString* town;
+    bool m_town_isSet;
+
+    QString* city;
+    bool m_city_isSet;
+
+    QString* city_district;
+    bool m_city_district_isSet;
 
     QString* county;
     bool m_county_isSet;
 
     QString* state;
     bool m_state_isSet;
+
+    QString* state_district;
+    bool m_state_district_isSet;
 
     QString* postcode;
     bool m_postcode_isSet;
@@ -102,8 +162,8 @@ private:
     QString* country_code;
     bool m_country_code_isSet;
 
-    QString* city;
-    bool m_city_isSet;
+    QString* state_code;
+    bool m_state_code_isSet;
 
 };
 

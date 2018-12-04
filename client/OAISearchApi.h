@@ -35,7 +35,7 @@ public:
     QString basePath;
     QMap<QString, QString> defaultHeaders;
 
-    void search(QString* q, QString* format, qint32 normalizecity, qint32 addressdetails, QString* viewbox, qint32 bounded, qint32 limit, QString* accept_language, QString* countrycodes, qint32 namedetails, qint32 dedupe, qint32 extratags);
+    void search(QString* q, QString* format, qint32 normalizecity, qint32 addressdetails, QString* viewbox, qint32 bounded, qint32 limit, QString* accept_language, QString* countrycodes, qint32 namedetails, qint32 dedupe, qint32 extratags, qint32 statecode);
     
 private:
     void searchCallback (OAIHttpRequestWorker * worker);

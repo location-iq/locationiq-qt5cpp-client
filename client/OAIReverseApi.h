@@ -36,7 +36,7 @@ public:
     QString basePath;
     QMap<QString, QString> defaultHeaders;
 
-    void reverse(OAINumber* lat, OAINumber* lon, QString* format, qint32 normalizecity, qint32 addressdetails, QString* accept_language, qint32 namedetails, qint32 extratags);
+    void reverse(OAINumber* lat, OAINumber* lon, QString* format, qint32 normalizecity, qint32 addressdetails, QString* accept_language, qint32 namedetails, qint32 extratags, qint32 statecode);
     
 private:
     void reverseCallback (OAIHttpRequestWorker * worker);

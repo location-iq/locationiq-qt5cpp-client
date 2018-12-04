@@ -30,7 +30,7 @@ OAIReverseApi::OAIReverseApi(QString host, QString basePath) {
 }
 
 void
-OAIReverseApi::reverse(OAINumber* lat, OAINumber* lon, QString* format, qint32 normalizecity, qint32 addressdetails, QString* accept_language, qint32 namedetails, qint32 extratags) {
+OAIReverseApi::reverse(OAINumber* lat, OAINumber* lon, QString* format, qint32 normalizecity, qint32 addressdetails, QString* accept_language, qint32 namedetails, qint32 extratags, qint32 statecode) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/reverse.php");
 
@@ -98,6 +98,14 @@ OAIReverseApi::reverse(OAINumber* lat, OAINumber* lon, QString* format, qint32 n
     fullPath.append(QUrl::toPercentEncoding("extratags"))
         .append("=")
         .append(QUrl::toPercentEncoding(stringValue(extratags)));
+
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("statecode"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(stringValue(statecode)));
 
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();

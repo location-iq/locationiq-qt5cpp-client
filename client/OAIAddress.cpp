@@ -43,20 +43,40 @@ OAIAddress::init() {
     m_road_isSet = false;
     residential = new QString("");
     m_residential_isSet = false;
+    borough = new QString("");
+    m_borough_isSet = false;
+    neighbourhood = new QString("");
+    m_neighbourhood_isSet = false;
+    quarter = new QString("");
+    m_quarter_isSet = false;
+    hamlet = new QString("");
+    m_hamlet_isSet = false;
+    suburb = new QString("");
+    m_suburb_isSet = false;
+    island = new QString("");
+    m_island_isSet = false;
     village = new QString("");
     m_village_isSet = false;
+    town = new QString("");
+    m_town_isSet = false;
+    city = new QString("");
+    m_city_isSet = false;
+    city_district = new QString("");
+    m_city_district_isSet = false;
     county = new QString("");
     m_county_isSet = false;
     state = new QString("");
     m_state_isSet = false;
+    state_district = new QString("");
+    m_state_district_isSet = false;
     postcode = new QString("");
     m_postcode_isSet = false;
     country = new QString("");
     m_country_isSet = false;
     country_code = new QString("");
     m_country_code_isSet = false;
-    city = new QString("");
-    m_city_isSet = false;
+    state_code = new QString("");
+    m_state_code_isSet = false;
 }
 
 void
@@ -70,14 +90,44 @@ OAIAddress::cleanup() {
     if(residential != nullptr) { 
         delete residential;
     }
+    if(borough != nullptr) { 
+        delete borough;
+    }
+    if(neighbourhood != nullptr) { 
+        delete neighbourhood;
+    }
+    if(quarter != nullptr) { 
+        delete quarter;
+    }
+    if(hamlet != nullptr) { 
+        delete hamlet;
+    }
+    if(suburb != nullptr) { 
+        delete suburb;
+    }
+    if(island != nullptr) { 
+        delete island;
+    }
     if(village != nullptr) { 
         delete village;
+    }
+    if(town != nullptr) { 
+        delete town;
+    }
+    if(city != nullptr) { 
+        delete city;
+    }
+    if(city_district != nullptr) { 
+        delete city_district;
     }
     if(county != nullptr) { 
         delete county;
     }
     if(state != nullptr) { 
         delete state;
+    }
+    if(state_district != nullptr) { 
+        delete state_district;
     }
     if(postcode != nullptr) { 
         delete postcode;
@@ -88,8 +138,8 @@ OAIAddress::cleanup() {
     if(country_code != nullptr) { 
         delete country_code;
     }
-    if(city != nullptr) { 
-        delete city;
+    if(state_code != nullptr) { 
+        delete state_code;
     }
 }
 
@@ -110,11 +160,31 @@ OAIAddress::fromJsonObject(QJsonObject pJson) {
     
     ::OpenAPI::setValue(&residential, pJson["residential"], "QString", "QString");
     
+    ::OpenAPI::setValue(&borough, pJson["borough"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&neighbourhood, pJson["neighbourhood"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&quarter, pJson["quarter"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&hamlet, pJson["hamlet"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&suburb, pJson["suburb"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&island, pJson["island"], "QString", "QString");
+    
     ::OpenAPI::setValue(&village, pJson["village"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&town, pJson["town"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&city, pJson["city"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&city_district, pJson["city_district"], "QString", "QString");
     
     ::OpenAPI::setValue(&county, pJson["county"], "QString", "QString");
     
     ::OpenAPI::setValue(&state, pJson["state"], "QString", "QString");
+    
+    ::OpenAPI::setValue(&state_district, pJson["state_district"], "QString", "QString");
     
     ::OpenAPI::setValue(&postcode, pJson["postcode"], "QString", "QString");
     
@@ -122,7 +192,7 @@ OAIAddress::fromJsonObject(QJsonObject pJson) {
     
     ::OpenAPI::setValue(&country_code, pJson["country_code"], "QString", "QString");
     
-    ::OpenAPI::setValue(&city, pJson["city"], "QString", "QString");
+    ::OpenAPI::setValue(&state_code, pJson["state_code"], "QString", "QString");
     
 }
 
@@ -147,14 +217,44 @@ OAIAddress::asJsonObject() {
     if(residential != nullptr && *residential != QString("")){
         toJsonValue(QString("residential"), residential, obj, QString("QString"));
     }
+    if(borough != nullptr && *borough != QString("")){
+        toJsonValue(QString("borough"), borough, obj, QString("QString"));
+    }
+    if(neighbourhood != nullptr && *neighbourhood != QString("")){
+        toJsonValue(QString("neighbourhood"), neighbourhood, obj, QString("QString"));
+    }
+    if(quarter != nullptr && *quarter != QString("")){
+        toJsonValue(QString("quarter"), quarter, obj, QString("QString"));
+    }
+    if(hamlet != nullptr && *hamlet != QString("")){
+        toJsonValue(QString("hamlet"), hamlet, obj, QString("QString"));
+    }
+    if(suburb != nullptr && *suburb != QString("")){
+        toJsonValue(QString("suburb"), suburb, obj, QString("QString"));
+    }
+    if(island != nullptr && *island != QString("")){
+        toJsonValue(QString("island"), island, obj, QString("QString"));
+    }
     if(village != nullptr && *village != QString("")){
         toJsonValue(QString("village"), village, obj, QString("QString"));
+    }
+    if(town != nullptr && *town != QString("")){
+        toJsonValue(QString("town"), town, obj, QString("QString"));
+    }
+    if(city != nullptr && *city != QString("")){
+        toJsonValue(QString("city"), city, obj, QString("QString"));
+    }
+    if(city_district != nullptr && *city_district != QString("")){
+        toJsonValue(QString("city_district"), city_district, obj, QString("QString"));
     }
     if(county != nullptr && *county != QString("")){
         toJsonValue(QString("county"), county, obj, QString("QString"));
     }
     if(state != nullptr && *state != QString("")){
         toJsonValue(QString("state"), state, obj, QString("QString"));
+    }
+    if(state_district != nullptr && *state_district != QString("")){
+        toJsonValue(QString("state_district"), state_district, obj, QString("QString"));
     }
     if(postcode != nullptr && *postcode != QString("")){
         toJsonValue(QString("postcode"), postcode, obj, QString("QString"));
@@ -165,8 +265,8 @@ OAIAddress::asJsonObject() {
     if(country_code != nullptr && *country_code != QString("")){
         toJsonValue(QString("country_code"), country_code, obj, QString("QString"));
     }
-    if(city != nullptr && *city != QString("")){
-        toJsonValue(QString("city"), city, obj, QString("QString"));
+    if(state_code != nullptr && *state_code != QString("")){
+        toJsonValue(QString("state_code"), state_code, obj, QString("QString"));
     }
 
     return obj;
@@ -203,6 +303,66 @@ OAIAddress::setResidential(QString* residential) {
 }
 
 QString*
+OAIAddress::getBorough() {
+    return borough;
+}
+void
+OAIAddress::setBorough(QString* borough) {
+    this->borough = borough;
+    this->m_borough_isSet = true;
+}
+
+QString*
+OAIAddress::getNeighbourhood() {
+    return neighbourhood;
+}
+void
+OAIAddress::setNeighbourhood(QString* neighbourhood) {
+    this->neighbourhood = neighbourhood;
+    this->m_neighbourhood_isSet = true;
+}
+
+QString*
+OAIAddress::getQuarter() {
+    return quarter;
+}
+void
+OAIAddress::setQuarter(QString* quarter) {
+    this->quarter = quarter;
+    this->m_quarter_isSet = true;
+}
+
+QString*
+OAIAddress::getHamlet() {
+    return hamlet;
+}
+void
+OAIAddress::setHamlet(QString* hamlet) {
+    this->hamlet = hamlet;
+    this->m_hamlet_isSet = true;
+}
+
+QString*
+OAIAddress::getSuburb() {
+    return suburb;
+}
+void
+OAIAddress::setSuburb(QString* suburb) {
+    this->suburb = suburb;
+    this->m_suburb_isSet = true;
+}
+
+QString*
+OAIAddress::getIsland() {
+    return island;
+}
+void
+OAIAddress::setIsland(QString* island) {
+    this->island = island;
+    this->m_island_isSet = true;
+}
+
+QString*
 OAIAddress::getVillage() {
     return village;
 }
@@ -210,6 +370,36 @@ void
 OAIAddress::setVillage(QString* village) {
     this->village = village;
     this->m_village_isSet = true;
+}
+
+QString*
+OAIAddress::getTown() {
+    return town;
+}
+void
+OAIAddress::setTown(QString* town) {
+    this->town = town;
+    this->m_town_isSet = true;
+}
+
+QString*
+OAIAddress::getCity() {
+    return city;
+}
+void
+OAIAddress::setCity(QString* city) {
+    this->city = city;
+    this->m_city_isSet = true;
+}
+
+QString*
+OAIAddress::getCityDistrict() {
+    return city_district;
+}
+void
+OAIAddress::setCityDistrict(QString* city_district) {
+    this->city_district = city_district;
+    this->m_city_district_isSet = true;
 }
 
 QString*
@@ -230,6 +420,16 @@ void
 OAIAddress::setState(QString* state) {
     this->state = state;
     this->m_state_isSet = true;
+}
+
+QString*
+OAIAddress::getStateDistrict() {
+    return state_district;
+}
+void
+OAIAddress::setStateDistrict(QString* state_district) {
+    this->state_district = state_district;
+    this->m_state_district_isSet = true;
 }
 
 QString*
@@ -263,13 +463,13 @@ OAIAddress::setCountryCode(QString* country_code) {
 }
 
 QString*
-OAIAddress::getCity() {
-    return city;
+OAIAddress::getStateCode() {
+    return state_code;
 }
 void
-OAIAddress::setCity(QString* city) {
-    this->city = city;
-    this->m_city_isSet = true;
+OAIAddress::setStateCode(QString* state_code) {
+    this->state_code = state_code;
+    this->m_state_code_isSet = true;
 }
 
 
@@ -280,13 +480,23 @@ OAIAddress::isSet(){
         if(house_number != nullptr && *house_number != QString("")){ isObjectUpdated = true; break;}
         if(road != nullptr && *road != QString("")){ isObjectUpdated = true; break;}
         if(residential != nullptr && *residential != QString("")){ isObjectUpdated = true; break;}
+        if(borough != nullptr && *borough != QString("")){ isObjectUpdated = true; break;}
+        if(neighbourhood != nullptr && *neighbourhood != QString("")){ isObjectUpdated = true; break;}
+        if(quarter != nullptr && *quarter != QString("")){ isObjectUpdated = true; break;}
+        if(hamlet != nullptr && *hamlet != QString("")){ isObjectUpdated = true; break;}
+        if(suburb != nullptr && *suburb != QString("")){ isObjectUpdated = true; break;}
+        if(island != nullptr && *island != QString("")){ isObjectUpdated = true; break;}
         if(village != nullptr && *village != QString("")){ isObjectUpdated = true; break;}
+        if(town != nullptr && *town != QString("")){ isObjectUpdated = true; break;}
+        if(city != nullptr && *city != QString("")){ isObjectUpdated = true; break;}
+        if(city_district != nullptr && *city_district != QString("")){ isObjectUpdated = true; break;}
         if(county != nullptr && *county != QString("")){ isObjectUpdated = true; break;}
         if(state != nullptr && *state != QString("")){ isObjectUpdated = true; break;}
+        if(state_district != nullptr && *state_district != QString("")){ isObjectUpdated = true; break;}
         if(postcode != nullptr && *postcode != QString("")){ isObjectUpdated = true; break;}
         if(country != nullptr && *country != QString("")){ isObjectUpdated = true; break;}
         if(country_code != nullptr && *country_code != QString("")){ isObjectUpdated = true; break;}
-        if(city != nullptr && *city != QString("")){ isObjectUpdated = true; break;}
+        if(state_code != nullptr && *state_code != QString("")){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }

@@ -39,10 +39,13 @@ void
 OAIDaybalance::init() {
     day = 0;
     m_day_isSet = false;
+    bonus = 0;
+    m_bonus_isSet = false;
 }
 
 void
 OAIDaybalance::cleanup() {
+
 
 }
 
@@ -58,6 +61,8 @@ OAIDaybalance::fromJson(QString json) {
 void
 OAIDaybalance::fromJsonObject(QJsonObject pJson) {
     ::OpenAPI::setValue(&day, pJson["day"], "qint32", "");
+    
+    ::OpenAPI::setValue(&bonus, pJson["bonus"], "qint32", "");
     
 }
 
@@ -76,6 +81,9 @@ OAIDaybalance::asJsonObject() {
     if(m_day_isSet){
         obj.insert("day", QJsonValue(day));
     }
+    if(m_bonus_isSet){
+        obj.insert("bonus", QJsonValue(bonus));
+    }
 
     return obj;
 }
@@ -90,12 +98,23 @@ OAIDaybalance::setDay(qint32 day) {
     this->m_day_isSet = true;
 }
 
+qint32
+OAIDaybalance::getBonus() {
+    return bonus;
+}
+void
+OAIDaybalance::setBonus(qint32 bonus) {
+    this->bonus = bonus;
+    this->m_bonus_isSet = true;
+}
+
 
 bool
 OAIDaybalance::isSet(){
     bool isObjectUpdated = false;
     do{
         if(m_day_isSet){ isObjectUpdated = true; break;}
+        if(m_bonus_isSet){ isObjectUpdated = true; break;}
     }while(false);
     return isObjectUpdated;
 }

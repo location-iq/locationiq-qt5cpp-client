@@ -43,12 +43,18 @@ public:
     qint32 getDay();
     void setDay(qint32 day);
 
+    qint32 getBonus();
+    void setBonus(qint32 bonus);
+
 
     virtual bool isSet() override;
 
 private:
     qint32 day;
     bool m_day_isSet;
+
+    qint32 bonus;
+    bool m_bonus_isSet;
 
 };
 

@@ -30,7 +30,7 @@ OAISearchApi::OAISearchApi(QString host, QString basePath) {
 }
 
 void
-OAISearchApi::search(QString* q, QString* format, qint32 normalizecity, qint32 addressdetails, QString* viewbox, qint32 bounded, qint32 limit, QString* accept_language, QString* countrycodes, qint32 namedetails, qint32 dedupe, qint32 extratags) {
+OAISearchApi::search(QString* q, QString* format, qint32 normalizecity, qint32 addressdetails, QString* viewbox, qint32 bounded, qint32 limit, QString* accept_language, QString* countrycodes, qint32 namedetails, qint32 dedupe, qint32 extratags, qint32 statecode) {
     QString fullPath;
     fullPath.append(this->host).append(this->basePath).append("/search.php");
 
@@ -130,6 +130,14 @@ OAISearchApi::search(QString* q, QString* format, qint32 normalizecity, qint32 a
     fullPath.append(QUrl::toPercentEncoding("extratags"))
         .append("=")
         .append(QUrl::toPercentEncoding(stringValue(extratags)));
+
+    if (fullPath.indexOf("?") > 0)
+      fullPath.append("&");
+    else
+      fullPath.append("?");
+    fullPath.append(QUrl::toPercentEncoding("statecode"))
+        .append("=")
+        .append(QUrl::toPercentEncoding(stringValue(statecode)));
 
 
     OAIHttpRequestWorker *worker = new OAIHttpRequestWorker();
